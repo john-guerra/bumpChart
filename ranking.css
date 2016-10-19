@@ -1,0 +1,64 @@
+
+#mainContainer .line {
+  stroke: #4A90E2;
+  stroke-width: 3px;
+  stroke-opacity: 0.30;
+  fill: none;
+}
+
+.box text {
+  opacity: 0;
+}
+
+.box:hover text {
+  opacity: 1;
+}
+/*.mainArea image {
+  opacity: 0;
+}
+*/
+/*.mainArea image:hover {
+  opacity: 1;
+}
+*/
+/* For hovering */
+.mainArea.selected .line.selected {
+  opacity: 0.9;
+}
+.mainArea.selected .line {
+  opacity: 0.1;
+}
+
+.mainArea.selected .box {
+  opacity: 0.1;
+}
+
+.mainArea.selected .box.selected{
+  opacity: 0.9;
+}
+/* End hovering */
+
+.box rect {
+  fill-opacity: 0.75;
+}
+
+#mainContainer .box text {
+  pointer-events: none;
+  font-size: 8pt;
+}
+
+
+#mainContainer .axis path,
+.axis line {
+  fill: none;
+  /*stroke: #ccc;*/
+  shape-rendering: crispEdges;
+}
+
+#mainContainer .y.axis line {
+  stroke: white;
+}
+
+#mainContainer text {
+  font-size: 16pt;
+}

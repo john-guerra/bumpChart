@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Bumpchart example: Fifa World Rankings">
+  <meta name="author" content="John Alexis Guerra Gomez">
+  <title>Fifa World Rankings</title>
+  <style>
+  #mainContainer .line {
+  stroke: #4A90E2;
+  stroke-width: 3px;
+  stroke-opacity: 0.30;
+  fill: none;
+}
+
+.mainArea.selected .line.selected,
+.mainArea.selected .box.selected {
+  opacity: 0.9;
+}
+.mainArea.selected .line,
+.mainArea.selected .box  {
+  opacity: 0.1;
+}
+
+.box rect {
+  fill-opacity: 0.75;
+}
+
+#mainContainer .box text {
+  pointer-events: none;
+  font-size: 14pt;
+}
+
+#mainContainer .axis path,
+.axis line {
+  fill: none;
+  /*stroke: #ccc;*/
+  shape-rendering: crispEdges;
+}
+
+#mainContainer .y.axis line {
+  stroke: white;
+}
+
+#mainContainer text {
+  font-size: 16pt;
+  font-family: sans-serif;
+}
+
+  </style>
+</head>
+<body>
+    <h1>Fifa World Rankings</h1>
+
+    <div class="container" id="mainContainer"></div><!-- /.container -->
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script  type="text/javascript" src="bumpChartPhotos.js"></script>
+<script type="text/javascript">
+  var numPhotos = 10;
+  var fmt = d3.time.format("%m/%d/%Y");
+  var myBumpChart = bumpChartPhotos()
+        .x(function (d) { return d.year; })
+        .key(function (d) { return d.Team; })
+        .img(function (d) { return d.img; })
+        .label(function (d) { return d.Team; })
+        .y(function (d) { return d.Rank; })
+        .topN(numPhotos)
+
+        // .onClick(function (d) { window.open(d.url,'_blank'); })
+        .width(900)
+        .height(800);
+
+
+  d3.csv("Fifa World Ranking.csv", function (err, data) {
+    data.forEach(function (d) {
+      d.DateTaken = fmt.parse(d.DateTaken);
+      d.img = "https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_" + d.Team + ".svg/750px-Flag_of_" + d.Team + ".svg.png";
+      d.year = new Date(d.DateTaken.getFullYear(), 0, 1);
+    });
+    d3.select("#mainContainer")
+      .datum(data)
+      .call(myBumpChart);
+  });
+
+
+
+</script>
+
+</html>

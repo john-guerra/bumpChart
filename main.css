@@ -1,0 +1,207 @@
+html {
+  background-color: #F3F5F6;
+}
+
+div#mainContainer {
+	/*padding: 5px 0px;*/
+
+}
+
+
+#albums.selected .treemapNode {
+  opacity: 0.3;
+}
+#albums .treemapNode.selected {
+  opacity: 1.0;
+}
+#albums .treemapNode {
+  opacity: 1.0;
+}
+
+
+#spinnerBG {
+  opacity: 0.9;
+  background-color: white;
+  z-index: -1;
+}
+
+.node {
+  /*border: solid 1px white;*/
+  /*font: 10px sans-serif;*/
+  /*z-index: -2;*/
+  line-height: 1;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 2px;
+  background-repeat:no-repeat;
+  background-position: center;
+  /*opacity: 0.3;*/
+}
+
+
+
+.nodeText {
+  /*opacity: 0.3;*/
+  padding: 3px;
+  visibility: hidden;
+  /*font-size : 12px;*/
+  background-color: #fff1;
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+  background: rgba(51,51,51,0.37);
+  color: #FFFFFF;
+  line-height: 16px;
+}
+
+.showAllLabels .nodeText {
+  visibility: visible;
+}
+
+.nodeText img {
+  /*width: 15px;*/
+  height: 10px;
+  pointer-events: none;
+  margin-top: 2px;
+}
+
+.nodeTextTitle {
+  height: 20px;
+  font-family: Arial-BoldMT;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.nodeTextValue {
+  font-family: Arial;
+  font-size: 10px;
+}
+
+.node:hover .nodeText {
+
+  opacity: 1.0;
+  visibility: visible;
+}
+
+.nodeBG {
+  z-index: -1;
+  opacity: 1.0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+/*  background-size: contain;
+  background-repeat: no-repeat;*/
+
+}
+
+.node.leaf:hover {
+  cursor: pointer;
+}
+
+.node.leaf:hover .nodeBG {
+  /*opacity: 0.3;*/
+
+  border-color: steelblue;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.node.leaf:hover {
+  z-index: 10;
+}
+
+
+#likersTreeMap.selected .node .nodeBG {
+  opacity: 0.1;
+}
+#likersTreeMap.selected .node.selected .nodeBG {
+  opacity: 0.6;
+}
+
+#albums {
+  /*margin-top: 10px;*/
+}
+
+.clearer {
+  clear: left;
+}
+
+.lefter {
+  float: left;
+}
+
+.likers {
+  width: 80%;
+}
+
+.postTitle {
+  width: 20%;
+}
+
+.numLikes {
+  margin-left: 4px;
+  /*font-weight: bold;*/
+  font-family: fantasy;
+
+}
+
+.album, .post {
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 0.25em 0.5em;
+  margin-bottom: 0.5em;h
+}
+
+
+
+#logout {
+  display: none;
+}
+
+.hSpace {
+  margin-left: 20px;
+}
+
+
+.hFiller {
+  float: right;
+  margin-right: 5px;
+}
+
+#timeline .line {
+  stroke: #4A90E2;
+  stroke-width: 4px;
+  fill: none;
+}
+
+#timeline .area {
+  fill: none;
+}
+
+
+#timeline .axis path,
+.axis line {
+  fill: none;
+  /*stroke: #ccc;*/
+  shape-rendering: crispEdges;
+}
+
+#timeline .y.axis line {
+  stroke: white;
+}
+
+#timeline text {
+  font-size: 8pt;
+}
+
+#timeline .curtain {
+  fill: #F3F5F6;
+  opacity: 0.7;
+}
